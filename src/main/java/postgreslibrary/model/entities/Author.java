@@ -13,6 +13,7 @@ public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "author_id")
     private Integer id;
     
     @Column(name = "name")

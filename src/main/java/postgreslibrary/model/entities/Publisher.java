@@ -13,6 +13,7 @@ public class Publisher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "publisher_id")
     private Integer id;
 
     @Column(name = "name")
