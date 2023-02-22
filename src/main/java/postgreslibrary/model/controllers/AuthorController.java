@@ -87,7 +87,7 @@ public class AuthorController {
         }
         catch(Exception e){
             Alerts.showAlert("Error in deleting author data", null, 
-            e.getMessage(), AlertType.ERROR);
+            "You need to delete all books from this author before delete this entry.", AlertType.ERROR);
         }
     }
 

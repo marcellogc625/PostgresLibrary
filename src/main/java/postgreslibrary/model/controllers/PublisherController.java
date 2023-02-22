@@ -86,7 +86,7 @@ public class PublisherController {
         }
         catch(Exception e){
             Alerts.showAlert("Error in deleting publisher data", null, 
-            e.getMessage(), AlertType.ERROR);
+            "You need to delete all books from this publisher before delete this entry.", AlertType.ERROR);
         }
     }
     
