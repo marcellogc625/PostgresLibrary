@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="499.0" prefWidth="781.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="postgreslibrary.gui.controllers.MainViewController">
+   <children>
+      <MenuBar prefHeight="27.0" prefWidth="781.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Add...">
+            <items>
+              <MenuItem fx:id="addAuthor" mnemonicParsing="false" onAction="#onCreateAuthorAction" text="Add new author..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="addBook" mnemonicParsing="false" onAction="#onCreateBookAction" text="Add new book..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="addPublisher" mnemonicParsing="false" onAction="#onCreatePublisherAction" text="Add new publisher..." />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit...">
+            <items>
+                  <MenuItem fx:id="editAuthor" mnemonicParsing="false" onAction="#onEditAuthorAction" text="Edit author..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="editBook" mnemonicParsing="false" onAction="#onEditBookAction" text="Edit book..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="editPublisher" mnemonicParsing="false" onAction="#onEditPublisherAction" text="Edit publisher..." />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Delete...">
+            <items>
+                  <MenuItem fx:id="deleteAuthor" mnemonicParsing="false" onAction="#onDelAuthorAction" text="Delete author..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="deleteBook" mnemonicParsing="false" onAction="#onDelBookAction" text="Delete book..." />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="deletePublisher" mnemonicParsing="false" onAction="#onDelPublisherAction" text="Delete publisher..." />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Options">
+               <items>
+                  <MenuItem fx:id="RefreshTable" mnemonicParsing="false" onAction="#onRefreshTableAction" text="Refresh Table" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="AboutMenu" mnemonicParsing="false" onAction="#onAboutMenuAction" text="About" />
+               </items></Menu>
+        </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </MenuBar>
+      <TableView fx:id="bookTable" layoutY="27.0" prefHeight="474.0" prefWidth="781.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+        <columns>
+          <TableColumn fx:id="nameColumn" editable="false" prefWidth="160.0" text="Book name" />
+          <TableColumn fx:id="isbnColumn" editable="false" minWidth="0.0" prefWidth="125.0" resizable="false" text="ISBN" />
+            <TableColumn fx:id="priceColumn" editable="false" minWidth="0.0" prefWidth="100.0" resizable="false" text="Price" />
+            <TableColumn fx:id="seqNoColumn" editable="false" minWidth="0.0" prefWidth="75.0" resizable="false" text="Sequence" />
+            <TableColumn fx:id="authorColumn" editable="false" minWidth="0.0" prefWidth="160.0" text="Author" />
+            <TableColumn fx:id="publisherColumn" editable="false" minWidth="0.0" prefWidth="160.0" text="Publisher" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
