@@ -9,7 +9,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="499.0" prefWidth="781.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="postgreslibrary.gui.controllers.MainViewController">
+<AnchorPane prefHeight="594.0" prefWidth="1116.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="postgreslibrary.gui.controllers.MainViewController">
    <children>
       <MenuBar prefHeight="27.0" prefWidth="781.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <menus>
@@ -51,14 +51,14 @@
             <Insets />
          </opaqueInsets>
       </MenuBar>
-      <TableView fx:id="bookTable" layoutY="27.0" prefHeight="474.0" prefWidth="781.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+      <TableView fx:id="bookTable" layoutY="27.0" prefHeight="525.0" prefWidth="891.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
         <columns>
-          <TableColumn fx:id="nameColumn" editable="false" prefWidth="160.0" text="Book name" />
-          <TableColumn fx:id="isbnColumn" editable="false" minWidth="0.0" prefWidth="125.0" resizable="false" text="ISBN" />
-            <TableColumn fx:id="priceColumn" editable="false" minWidth="0.0" prefWidth="100.0" resizable="false" text="Price" />
-            <TableColumn fx:id="seqNoColumn" editable="false" minWidth="0.0" prefWidth="75.0" resizable="false" text="Sequence" />
-            <TableColumn fx:id="authorColumn" editable="false" minWidth="0.0" prefWidth="160.0" text="Author" />
-            <TableColumn fx:id="publisherColumn" editable="false" minWidth="0.0" prefWidth="160.0" text="Publisher" />
+          <TableColumn fx:id="nameColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="160.0" prefWidth="410.0" text="Book name" />
+          <TableColumn fx:id="isbnColumn" editable="false" maxWidth="125.0" minWidth="125.0" prefWidth="125.0" resizable="false" text="ISBN" />
+            <TableColumn fx:id="priceColumn" editable="false" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" resizable="false" text="Price" />
+            <TableColumn fx:id="seqNoColumn" editable="false" maxWidth="75.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="Sequence" />
+            <TableColumn fx:id="authorColumn" editable="false" maxWidth="160.0" minWidth="160.0" prefWidth="160.0" resizable="false" text="Author" />
+            <TableColumn fx:id="publisherColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="160.0" prefWidth="245.0" resizable="false" text="Publisher" />
         </columns>
       </TableView>
    </children>
