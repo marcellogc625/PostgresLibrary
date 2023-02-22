@@ -10,6 +10,7 @@ import postgreslibrary.model.dao.BookAuthorDAO;
 import postgreslibrary.model.dao.BookDAO;
 import postgreslibrary.model.entities.Book;
 import postgreslibrary.model.entities.BookAuthor;
+import postgreslibrary.model.entities.BookAuthorId;
 
 public class BookController {
 
@@ -21,7 +22,7 @@ public class BookController {
         this.bookAuthorDAO = bookAuthorDAO;
     }
     // Listener methods //
-    private List<DataChangeListener> listeners = new ArrayList<>();
+    public List<DataChangeListener> listeners = new ArrayList<>();
 
     private void notifyListeners(){
         for(DataChangeListener dcl: listeners){
@@ -58,6 +59,7 @@ public class BookController {
             bookDAO.addBook(book);
             bookAuthorDAO.addBookAuthor(bookAuthor);
             notifyListeners();
+            Alerts.showAlert("Success", null, "Book data created with success.", AlertType.INFORMATION);
         }
         catch(Exception e){
             Alerts.showAlert("Error in creating book data", null, 
@@ -70,22 +72,28 @@ public class BookController {
             bookDAO.updateBook(book);
             bookAuthorDAO.updateBookAuthor(bookAuthor);
             notifyListeners();
+            Alerts.showAlert("Success", null, 
+            "Book data updated with success.", AlertType.INFORMATION);
         }
         catch(Exception e){
             Alerts.showAlert("Error in updating book data", null, 
             e.getMessage(), AlertType.ERROR);
+            e.printStackTrace();
         }
     }
 
-    public void deleteBook(String isbn){
+    public void deleteBook(String isbn, BookAuthorId id){
         try{
+            bookAuthorDAO.deleteBookAuthor(id);
             bookDAO.deleteBook(isbn);
-            bookAuthorDAO.deleteBookAuthor(isbn);
             notifyListeners();
+            Alerts.showAlert("Success", null, 
+            "Book data deleted with success.", AlertType.INFORMATION);
         }
         catch(Exception e){
             Alerts.showAlert("Error in deleting book data", null, 
             e.getMessage(), AlertType.ERROR);
+            e.printStackTrace();
         }
     }
     

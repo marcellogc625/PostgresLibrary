@@ -55,6 +55,8 @@ public class PublisherController {
         try{
             publisherDAO.addPublisher(publisher);
             notifyListeners();
+            Alerts.showAlert("Success", null, 
+            "Publisher data saved with success.", AlertType.INFORMATION);
         }
         catch(Exception e){
             Alerts.showAlert("Error in saving publisher data", null, 
@@ -66,6 +68,8 @@ public class PublisherController {
         try{
             publisherDAO.updatePublisher(publisher);
             notifyListeners();
+            Alerts.showAlert("Success", null, 
+            "Publisher data updated with success.", AlertType.INFORMATION);
         }
         catch(Exception e){
             Alerts.showAlert("Error in updating publisher data", null, 
@@ -77,6 +81,8 @@ public class PublisherController {
         try{
             publisherDAO.deletePublisher(id);
             notifyListeners();
+            Alerts.showAlert("Success", null, 
+            "Publisher data data with success.", AlertType.INFORMATION);
         }
         catch(Exception e){
             Alerts.showAlert("Error in deleting publisher data", null, 

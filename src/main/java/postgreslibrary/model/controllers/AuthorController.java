@@ -56,6 +56,8 @@ public class AuthorController {
         try{
             authorDAO.addAuthor(author);
             notifyListeners();
+            Alerts.showAlert("Success", null, 
+            "Author data updated with success.", AlertType.INFORMATION);
         }
         catch(Exception e){
             Alerts.showAlert("Error in creating author data", null, 
@@ -67,6 +69,8 @@ public class AuthorController {
         try{
             authorDAO.updateAuthor(author);
             notifyListeners();
+            Alerts.showAlert("Success", null, 
+            "Author data updated with success.", AlertType.INFORMATION);
         }
         catch(Exception e){
             Alerts.showAlert("Error in updating author data", null, 
@@ -78,6 +82,8 @@ public class AuthorController {
         try{
             authorDAO.deleteAuthor(id);
             notifyListeners();
+            Alerts.showAlert("Success", null, 
+            "Author data deleted with success.", AlertType.INFORMATION);
         }
         catch(Exception e){
             Alerts.showAlert("Error in deleting author data", null, 
