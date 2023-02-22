@@ -6,6 +6,7 @@ import org.hibernate.Session;
 
 import postgreslibrary.model.HibernateConfig;
 import postgreslibrary.model.entities.BookAuthor;
+import postgreslibrary.model.entities.BookAuthorId;
 
 public class BookAuthorDAO {
 
@@ -32,10 +33,10 @@ public class BookAuthorDAO {
         session.close();
     }
 
-    public void deleteBookAuthor(String isbn){
+    public void deleteBookAuthor(BookAuthorId id){
         Session session = HibernateConfig.getSessionFactory().openSession();
         session.beginTransaction();
-        BookAuthor bookAuthor = session.get(BookAuthor.class, isbn);
+        BookAuthor bookAuthor = session.get(BookAuthor.class, id);
         session.remove(bookAuthor);
         session.getTransaction().commit();
         session.close();
