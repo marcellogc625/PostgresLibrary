@@ -237,8 +237,8 @@ public class MainViewController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/postgreslibrary/gui/views/PublisherEdit.fxml"));
             Parent root = loader.load();
-            BookFormController bfc = loader.getController();
-            bfc.setMainViewController(this);
+            PublisherFormController pfc = loader.getController();
+            pfc.setMainViewController(this);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setScene(scene);
