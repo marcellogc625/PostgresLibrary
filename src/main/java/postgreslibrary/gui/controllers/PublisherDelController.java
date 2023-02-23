@@ -2,6 +2,7 @@ package postgreslibrary.gui.controllers;
 
 import postgreslibrary.gui.listeners.DataChangeListener;
 import postgreslibrary.gui.utils.Alerts;
+import postgreslibrary.gui.utils.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import postgreslibrary.model.dao.PublisherDAO;
 import postgreslibrary.model.entities.Publisher;
 
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -51,6 +53,7 @@ public class PublisherDelController implements Initializable, DataChangeListener
 
     public void loadPublishers(){
         List<Publisher> publishers = publisherController.findAll();
+        Collections.sort(publishers, Utils.publisherComparator());
         ObservableList<Publisher> publishersList = FXCollections.observableArrayList();
         // Populating ObservableList //
         for(Publisher p: publishers){

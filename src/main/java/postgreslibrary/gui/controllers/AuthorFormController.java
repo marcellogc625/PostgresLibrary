@@ -16,6 +16,7 @@ import postgreslibrary.model.entities.Author;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -102,6 +103,7 @@ public class AuthorFormController implements Initializable, DataChangeListener {
     public void loadAuthors(){
         // Populating ListView with authors //
         List<Author> authors = authorController.findAll();
+        Collections.sort(authors, Utils.authorComparator());
         ObservableList<Author> authorList = FXCollections.observableArrayList();
         for(Author a: authors){
             authorList.add(a);

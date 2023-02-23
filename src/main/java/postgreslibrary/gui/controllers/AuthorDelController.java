@@ -2,6 +2,7 @@ package postgreslibrary.gui.controllers;
 
 import postgreslibrary.gui.listeners.DataChangeListener;
 import postgreslibrary.gui.utils.Alerts;
+import postgreslibrary.gui.utils.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import postgreslibrary.model.dao.AuthorDAO;
 import postgreslibrary.model.entities.Author;
 
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -50,6 +52,7 @@ public class AuthorDelController implements Initializable, DataChangeListener {
 
     public void loadAuthors(){
         List<Author> authors = authorController.findAll();
+        Collections.sort(authors, Utils.authorComparator());
         ObservableList<Author> authorList = FXCollections.observableArrayList();
         // Populating authorList //
         for(Author a: authors){

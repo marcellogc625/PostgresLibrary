@@ -18,6 +18,7 @@ import postgreslibrary.model.entities.*;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -34,6 +35,7 @@ public class BookFormController implements Initializable, DataChangeListener {
     private MainViewController mvc = new MainViewController();
     // Listener object //
     public final List<DataChangeListener> dataChangeListeners = new ArrayList<>();
+
     // FXML //
     @FXML
     private ListView<Book> bookListView = new ListView<>();
@@ -115,7 +117,6 @@ public class BookFormController implements Initializable, DataChangeListener {
             notifyDataChangeListeners();
             mvc.refreshTable();
         }
-
     }
 
     public void onBtUpdateAction(){
@@ -161,6 +162,7 @@ public class BookFormController implements Initializable, DataChangeListener {
 
     public void loadBooks() {
         List<Book> books = bookController.findAllBooks();
+        Collections.sort(books, Utils.bookComparator());
         ObservableList<Book> bookList = FXCollections.observableArrayList();
         // Populating bookList and setting in ListView //
         for (Book b : books) {
@@ -170,7 +172,7 @@ public class BookFormController implements Initializable, DataChangeListener {
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initialize(URL url, ResourceBundle resourceBundle) {
         // Constraints to define max length of TextFields //
         Constraints.setTextFieldMaxLength(txtIsbn, 13);
         Constraints.setTextFieldMaxLength(txtPrice, 12);
@@ -187,6 +189,10 @@ public class BookFormController implements Initializable, DataChangeListener {
         List<Publisher> publishers = publisherController.findAll();
         ObservableList<Author> authorList = FXCollections.observableArrayList();
         ObservableList<Publisher> publisherList = FXCollections.observableArrayList();
+
+        // Comparator //
+        Collections.sort(authors, Utils.authorComparator());
+        Collections.sort(publishers, Utils.publisherComparator());
 
         // Populating authorList and setting in ComboBox //
         for(Author a: authors){

@@ -2,6 +2,7 @@ package postgreslibrary.gui.controllers;
 
 import postgreslibrary.gui.listeners.DataChangeListener;
 import postgreslibrary.gui.utils.Alerts;
+import postgreslibrary.gui.utils.Utils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import postgreslibrary.model.entities.Book;
 import postgreslibrary.model.entities.BookAuthor;
 
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -69,6 +71,7 @@ public class BookDelController implements Initializable, DataChangeListener {
     public void loadBooks(){
         // Loading ListView //
         List<Book> books = bookController.findAllBooks();
+        Collections.sort(books, Utils.bookComparator());
         ObservableList<Book> bookList = FXCollections.observableArrayList();
         // Populating bookList and setting in ListView //
         for (Book b : books) {
